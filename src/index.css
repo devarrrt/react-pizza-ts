@@ -7,7 +7,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+ul, 
+li{
+	list-style: none;
+}
+
+
+.content {
+  padding: 40px;
+	/* background-image: url('./assets'); */
+	background-color: #a07b69aa;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+
+.wrapper {
+  height: 100%;
+  border-radius: 10px;
+	margin: 0 auto;
+}
+
+
+
+

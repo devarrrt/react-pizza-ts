@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { Route } from 'react-router-dom'
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+import {Cart, Header} from "./components/index"
+import {Home} from './components/index';
+import { selectPizzaItems } from './redux/pizzas/pizzasSelector'
+import { fetchPizzasThunk } from './redux/pizzas/pizzasActions'
+import { useSelector, useDispatch } from 'react-redux'
+
+
+
+
+interface IApp {}
+
+
+const App: React.FC<IApp> = () => {
+const dispatch = useDispatch()
+const pizzas = useSelector( selectPizzaItems )
+
+
+useEffect(() => {
+	dispatch(fetchPizzasThunk())
+}, [ dispatch ])
+
+
+
+	return (
+		<div className="wrapper" >
+				<Header/>
+				<div className="content" >
+					<Route path="/" exact render={ ()=> ( <Home pizzas={ pizzas } /> ) } />
+					<Route path="/cart" component={ Cart }  />
+				</div>
+		</div>
+	)}
+
+
+
+export default App

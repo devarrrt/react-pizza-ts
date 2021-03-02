@@ -1,0 +1,78 @@
+.button{
+  display: inline-block;
+  background-color: #eaae5fdc;
+	box-shadow: 0 0 7px 3px #eaae5fdc;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  border: 1px solid transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+
+.button,
+.button span {
+  color: #fff;
+	margin: 0 5px;
+}
+
+.button i,
+.button span,
+.button path,
+.button svg {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+	text-decoration: none;
+}
+
+
+.button:hover {
+  background-color: #b8481cb3;
+	box-shadow: 0 0 7px 3px #b8481cb3;
+}
+
+.button:active {
+	background-color: #b8481cc2;
+	box-shadow: 0 0 7px 3px #b8481cb3;
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px)
+}
+
+.button--cart {
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 23px;
+  padding: 12px 25px
+}
+
+
+.button--cart svg {
+  margin-right: 8px; 
+  margin-bottom: 1px
+}
+
+.button__delimiter {
+  width: 1px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin-left: 14px;
+  margin-right: 14px
+}
+
+
+.button--cart span {
+  font-weight: 600;
+  font-size: 16px
+}
