@@ -17,7 +17,8 @@
 }
 
 .sort__label b {
-  margin-right: 8px
+  margin-right: 8px;
+	cursor: pointer;
 }
 
 .sort__label span {
