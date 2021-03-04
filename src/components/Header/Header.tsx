@@ -1,8 +1,8 @@
 import React from 'react'
+import { useSelector } from  'react-redux'
 import { Link } from 'react-router-dom'
-
-
 import {Button} from '../index'
+import { selectTotalCount,selectTotalPrice } from '../../redux/cart/cartSelector'
 import logo from '../../assets/img/pizza-logo.svg'
 import './Header.css'
 
@@ -10,6 +10,8 @@ import './Header.css'
 
 interface IHeader {}
 const Header: React.FC<IHeader> = () => {
+	const totalCount = useSelector(selectTotalCount)
+	const totalPrice = useSelector(selectTotalPrice)
 
 	return (
 		<div className="header">
@@ -28,7 +30,7 @@ const Header: React.FC<IHeader> = () => {
 			<div className="header__cart">
 				<Link to="/cart" >
 						<Button buttonCart >
-						<span> 330  p. </span>
+						<span> { totalPrice } p. </span>
 						<div className="button__delimiter"></div>
 						<svg
                 width="18"
@@ -59,7 +61,7 @@ const Header: React.FC<IHeader> = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-							<span> 4000 p. </span>
+							<span> { totalCount } </span>
 						</Button>
 				</Link>
 			</div>

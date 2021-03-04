@@ -4,21 +4,29 @@ import './Categories.css'
 
 
 interface ICategories {
-	items: string[]
+	items: string[],
+	selectCategory: ( index: null | any ) => void,
+	activeCategory: any
 }
 
 
 
-const Categories: React.FC<ICategories> = ({ items }) => {
+const Categories: React.FC<ICategories> = ({ items, selectCategory, activeCategory }) => {
 	return (
 		<div className="categories">
 		<ul> 
-				<li>  
+				<li
+				className={ activeCategory === null ? 'active': '' }
+				onClick={ ()=> selectCategory( null ) }
+				>  
 				Все
 				</li>
-				{ items.map( (item, index) => {
+				{ items &&  items.map( (item, index) => {
 					return (
-						<li key={ index }>  
+						<li 
+						onClick={ ()=> selectCategory( index ) }
+						className={ activeCategory === index ? 'active' : '' }
+						key={ index }>  
 							{ item }
 						</li>
 					)

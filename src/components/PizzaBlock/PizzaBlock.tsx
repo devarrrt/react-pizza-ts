@@ -1,41 +1,89 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import cn from 'classnames'
 
 import './PizzaBlock.css'
 import { IPizza } from './../../redux/pizzas/pizzasState';
 
 
 interface IPizzaBlock {
-	pizza: IPizza
+	id: number,
+	name: string,
+	imageUrl: string,
+	price: any,
+	sizes: any,
+	types: any
+	addPizzaToCart: ( pizza: IPizza )=> void 
 }
 
+const typeNames = ['тонкое', 'традиционное']
+const avalibleSize = [26, 30, 40]
 
+const PizzaBlock: React.FC<IPizzaBlock> = ({ id, name, imageUrl, price, types, sizes, addPizzaToCart }) => {
+const [activeType, setActiveType] = useState( types[0])
+const [ activeSize, setActiveSize ] = useState(0)
 
-const PizzaBlock: React.FC<IPizzaBlock> = ({ pizza }) => {
+const onSelectType = ( index: number ) => {
+	setActiveType(index)
+}
+const onSelectSize = (index: number) => {
+	setActiveSize(index)
+}
+
+const addPizza = ( ) => {
+	const obj = {
+		id,
+		name,
+		imageUrl,
+		price,
+		type: typeNames[ activeType ],
+		size: avalibleSize[activeSize]
+	}
+	//@ts-ignore
+	addPizzaToCart( obj )
+}
+
 	return (
 		<div className="pizza-block">
 		<img
 			className="pizza-block__image"
-			src={pizza.imageUrl}
+			src={imageUrl}
 			alt="Pizza"
 		/>
-		<h4 className="pizza-block__title"> {pizza.name} </h4>
+		<h4 className="pizza-block__title"> {name} </h4>
 
 		<div className="pizza-block__selector">
 			<ul>
-				<li> тонкое </li>
-				<li> традиционное </li>
+			{ typeNames.map( (type, index) => ( 
+				<li
+			key={ index }
+			onClick={() => onSelectType(index)}
+			// className={ cn({
+			// 	active: activeType === index,
+			// 	//@ts-ignore
+			// 	disabled: !pizza.types.includes( index )
+			// })}  
+				> { type } </li>
+			 ) ) }
 			</ul>
 
 			<ul>
-				<li> 26 </li>
-				<li> 30 </li>
-				<li> 40 </li>
+			 { avalibleSize.map( ( s, index ) => (
+				 <li
+				 key={ index }
+				 className={cn({
+					active: activeSize === index,
+					//@ts-ignore
+					disabled: !sizes.includes(s)
+				})}
+				onClick={ ()=> onSelectSize( index) }>
+					 { s }
+				 </li>
+			 ))}
 			</ul>
 		</div>
 
 		<div className="pizza-block__bottom">
-			<div className="pizza-block__price">от {pizza.price} ₽</div>
+			<div className="pizza-block__price">от {price} ₽</div>
 
 			<div
 				className="button button--outline button--add">
@@ -51,7 +99,7 @@ const PizzaBlock: React.FC<IPizzaBlock> = ({ pizza }) => {
 						fill="white"
 					/>
 				</svg>
-				<span>Добавить</span>
+				<span onClick={addPizza } >Добавить</span>
 </div>
 
 		</div>

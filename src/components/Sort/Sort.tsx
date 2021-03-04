@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react'
+
 import './Sort.css'
 
 
 interface ISort {
-	items: any
+	items: any,
+	activeSort: string,
+	selectSortType: ( index: string)=> void
 }
 
 
-const Sort: React.FC<ISort> = ({ items }) => {
-
+const Sort: React.FC<ISort> = ({ items, activeSort, selectSortType }) => {
 	const [visiblePopup, setVisiblePopup] = useState(false)
+
 	const sortRef = useRef(null)
 
 	const toggleViziblePopup = ( ) => {
@@ -22,10 +25,17 @@ const Sort: React.FC<ISort> = ({ items }) => {
 	 }
  }
 
+ const activeItem = ( index: any) => {
+	selectSortType( index )
+	setVisiblePopup( false )
+ }
+
  useEffect( ()=> {
 	document.addEventListener( 'click', closePopup )
  },[])
 
+
+ const activeLabel = items.find( (item: any) => item.type === activeSort).name
 
  
 	return (
@@ -46,7 +56,7 @@ const Sort: React.FC<ISort> = ({ items }) => {
 				<b 
 				onClick={ toggleViziblePopup }
 				>Сортировка по:</b>
-				<span> По цене </span>
+				<span> { activeLabel  } </span>
 			</div>
 			{ visiblePopup && (
 				<div className="sort__popup">
@@ -54,7 +64,11 @@ const Sort: React.FC<ISort> = ({ items }) => {
 						{/* @ts-ignore */}
 						{items.map((item, index) => {
 							return (
-								<li key={index}> { item.name} </li>
+								<li
+									className={ activeItem ===  item.type ? 'active': "" }
+								 key={index}
+								 onClick={ ()=>activeItem( item.type ) }
+								> { item.name } </li>
 							)
 						})}
 					</ul>
