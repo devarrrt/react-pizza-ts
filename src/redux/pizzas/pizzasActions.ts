@@ -13,7 +13,10 @@ export enum PizzasActionType {
 
 //@ts-ignore
 export const fetchPizzasThunk = ( category, sort ) => (dispatch) => {
-	dispatch(setLoadedAction(false))
+	dispatch({
+		type: PizzasActionType.SET_LOADED,
+		payload: false
+	})
 	axios.get(`http://localhost:3001/pizzas?${ category !== null ? `category=${ category }` : "" }&_sort=${ sort }&_order=desc }`)
 		.then(resp => {
 			dispatch(setPizzasAction(resp.data))

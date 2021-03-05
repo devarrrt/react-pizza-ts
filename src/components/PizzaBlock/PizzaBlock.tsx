@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import cn from 'classnames'
 
-import './PizzaBlock.css'
 import { IPizza } from './../../redux/pizzas/pizzasState';
+import './PizzaBlock.css'
+
 
 
 interface IPizzaBlock {
@@ -19,6 +20,7 @@ const typeNames = ['тонкое', 'традиционное']
 const avalibleSize = [26, 30, 40]
 
 const PizzaBlock: React.FC<IPizzaBlock> = ({ id, name, imageUrl, price, types, sizes, addPizzaToCart }) => {
+
 const [activeType, setActiveType] = useState( types[0])
 const [ activeSize, setActiveSize ] = useState(0)
 
@@ -42,6 +44,8 @@ const addPizza = ( ) => {
 	addPizzaToCart( obj )
 }
 
+
+
 	return (
 		<div className="pizza-block">
 		<img
@@ -53,29 +57,26 @@ const addPizza = ( ) => {
 
 		<div className="pizza-block__selector">
 			<ul>
-			{ typeNames.map( (type, index) => ( 
+			{ typeNames.map((type, index) => ( 
 				<li
 			key={ index }
 			onClick={() => onSelectType(index)}
-			// className={ cn({
-			// 	active: activeType === index,
-			// 	//@ts-ignore
-			// 	disabled: !pizza.types.includes( index )
-			// })}  
-				> { type } </li>
-			 ) ) }
+			className={cn({
+				active: activeType === index,
+				disabled: !types.includes(index)
+			})}> { type } </li>
+			 ))}
 			</ul>
 
 			<ul>
-			 { avalibleSize.map( ( s, index ) => (
+			 { avalibleSize.map(( s, index ) => (
 				 <li
 				 key={ index }
-				 className={cn({
+				 className={cn ({
 					active: activeSize === index,
-					//@ts-ignore
 					disabled: !sizes.includes(s)
 				})}
-				onClick={ ()=> onSelectSize( index) }>
+				onClick={ ()=> onSelectSize( index)}>
 					 { s }
 				 </li>
 			 ))}
@@ -86,6 +87,7 @@ const addPizza = ( ) => {
 			<div className="pizza-block__price">от {price} ₽</div>
 
 			<div
+			 onClick={addPizza}
 				className="button button--outline button--add">
 				<svg
 					width="12"
@@ -99,11 +101,9 @@ const addPizza = ( ) => {
 						fill="white"
 					/>
 				</svg>
-				<span onClick={addPizza } >Добавить</span>
-</div>
-
+				<span>Добавить</span>
+			</div>
 		</div>
-
 	</div>
 	)
 }

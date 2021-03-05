@@ -6,4 +6,4 @@ export { default as PizzaBlock } from '../components/PizzaBlock/PizzaBlock'
 export { default as Categories } from '../components/Categories/Categories'
 export { default as Sort } from '../components/Sort/Sort'
 export { default as CartItem } from '../pages/Cart/CartItem'
-
+export { default as Loader } from '../components/Loader/Loader'

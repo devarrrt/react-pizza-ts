@@ -8,11 +8,11 @@ interface ISort {
 	activeSort: string,
 	selectSortType: ( index: string)=> void
 }
-
+ 
 
 const Sort: React.FC<ISort> = ({ items, activeSort, selectSortType }) => {
+	
 	const [visiblePopup, setVisiblePopup] = useState(false)
-
 	const sortRef = useRef(null)
 
 	const toggleViziblePopup = ( ) => {
@@ -31,7 +31,7 @@ const Sort: React.FC<ISort> = ({ items, activeSort, selectSortType }) => {
  }
 
  useEffect( ()=> {
-	document.addEventListener( 'click', closePopup )
+	document.body.addEventListener( 'click', closePopup )
  },[])
 
 
@@ -81,13 +81,3 @@ const Sort: React.FC<ISort> = ({ items, activeSort, selectSortType }) => {
 
 
 export default Sort
-
-
-// 1.Дописать попап, добавить стили
-// 2.Сделать фильтрацию
-// 3. Сделать сортировку 
-// 4. Стилизация
-
-// 5.Корзина
-// 6.Добавление в корзину
-// 7.Удаление из корзины

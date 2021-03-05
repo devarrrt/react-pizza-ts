@@ -6,7 +6,7 @@ import './Categories.css'
 interface ICategories {
 	items: string[],
 	selectCategory: ( index: null | any ) => void,
-	activeCategory: any
+	activeCategory: any 
 }
 
 
@@ -18,9 +18,7 @@ const Categories: React.FC<ICategories> = ({ items, selectCategory, activeCatego
 				<li
 				className={ activeCategory === null ? 'active': '' }
 				onClick={ ()=> selectCategory( null ) }
-				>  
-				Все
-				</li>
+				>	Все </li>
 				{ items &&  items.map( (item, index) => {
 					return (
 						<li 
