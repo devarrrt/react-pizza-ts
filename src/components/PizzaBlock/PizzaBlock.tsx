@@ -13,7 +13,7 @@ interface IPizzaBlock {
 	price: any,
 	sizes: any,
 	types: any
-	addPizzaToCart: ( pizza: IPizza )=> void 
+	addPizzaToCart: ( pizza: IPizza ) => void 
 }
 
 const typeNames = ['тонкое', 'традиционное']

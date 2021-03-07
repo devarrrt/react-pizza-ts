@@ -1,14 +1,14 @@
 .button{
   display: inline-block;
-  background-color: #eaae5fdc;
-	box-shadow: 0 0 7px 3px #eaae5fdc;
+  background-color: #b36f17e5;
+	box-shadow: 0 0 7px 3px #b36f17e5;
   border-radius: 30px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
   -webkit-transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: all 0.3s linear;
   border: 1px solid transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -28,20 +28,24 @@
 .button span,
 .button path,
 .button svg {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear ;
 	text-decoration: none;
 }
 
 
 .button:hover {
-  background-color: #b8481cb3;
-	box-shadow: 0 0 7px 3px #b8481cb3;
+  background-color: #b8b8b8b3;
+	box-shadow: 0 0 7px 3px #b8b8b8b3;
 }
 
+
+
+
+
 .button:active {
-	background-color: #b8481cc2;
-	box-shadow: 0 0 7px 3px #b8481cb3;
+	background-color: #ffffffb3;
+	box-shadow: 0 0 7px 3px #ffffffb3;
   -webkit-transform: translateY(1px);
   transform: translateY(1px)
 }

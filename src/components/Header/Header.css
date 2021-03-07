@@ -1,7 +1,7 @@
 .header {
   border-bottom: 1px solid #f6f6f6;
   padding: 30px;
-	background-image: url('../../assets/img/1.jpg');
+	background-image: url('../../assets/img/pizza.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -21,22 +21,14 @@
 .header__logo{
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex
+	text-align: center;
 }
 
 .header__logo img {
   margin-right: 15px
 }
-
-.header__logo h1 {
-  color: #181818;
-  font-size: 24px;
-  letter-spacing: 1%;
-  text-transform: uppercase;
-  font-weight: 800
-}
-
-
 .header__logo p {
-  color: #7b7b7b
+  color: #ffffffd9;
+	margin-top: -15px;
+	font-size: 14px;
 }

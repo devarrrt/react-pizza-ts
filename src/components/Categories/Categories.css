@@ -22,7 +22,12 @@
   user-select: none
 }
 .categories ul li:hover {
-  background-color: #f4f4f4
+  background-color: #b36f17e5;
+	box-shadow: 0 0 7px 3px #b36f17e5;
+  color: #fff;
+	-webkit-transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: all 0.3s linear;
+	
 }
 
 .categories ul li:active {
@@ -30,6 +35,9 @@
 }
 
 .categories ul li.active {
-  background-color: #282828;
-  color: #fff
+  background-color: #b36f17e5;
+	box-shadow: 0 0 7px 3px #b36f17e5;
+  color: #fff;
+	-webkit-transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: all 0.3s linear;
 }

@@ -19,12 +19,8 @@ const Header: React.FC<IHeader> = () => {
 			<div className="header__logo"> 
 				<Link to='/'>
 				<img src="https://demo.kallyas.net/pizza/wp-content/uploads/sites/88/2017/10/logo3.png" alt="Pizza logo" />
+				<p > пицца на любой вкус </p>
 				</Link>
-
-				<div>
-					<h1> Don Diablo  </h1>
-					<p> пицца на любой вкус </p>
-				</div>
 			</div>
 
 			<div className="header__cart">
